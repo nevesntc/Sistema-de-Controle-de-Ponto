@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 8%;
+  --foreground: 0 0% 95%;
+  --card: 210 40% 8%;
+  --card-foreground: 0 0% 95%;
+  --popover: 210 40% 8%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 12 100% 64%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 12%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 210 40% 12%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 210 40% 12%;
+  --accent-foreground: 0 0% 95%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 95%;
+  --border: 210 40% 18%;
+  --input: 210 40% 16%;
+  --ring: 12 100% 64%;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
+  }
+
+  html {
+    @apply min-h-screen;
+    background-color: #1a1a1a;
+  }
+}
+
+@layer components {
+  .input-field {
+    @apply w-full px-4 py-3 rounded-full bg-zinc-800 border-none text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .primary-button {
+    @apply w-full py-3 px-6 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+}
