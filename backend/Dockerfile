@@ -4,16 +4,16 @@ WORKDIR /app
 
 # Instalar dependências
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci
 
 # Copiar código fonte
 COPY . .
 
-# Build da aplicação
+# Build da aplicação e correção dos aliases
 RUN npm run build
 
 # Expor porta
 EXPOSE 3001
 
 # Comando para iniciar
-CMD ["npm", "start"]
+CMD ["node", "dist/server.js"]

@@ -25,7 +25,7 @@ describe('AuthService', () => {
 
   describe('register', () => {
     it('deve registrar um novo usuário com sucesso', async () => {
-      // Arrange
+      
       const userData = {
         email: 'test@example.com',
         nome: 'Test User',
@@ -40,7 +40,7 @@ describe('AuthService', () => {
         createdAt: new Date(),
       });
 
-      // Act
+      // Ação
       const result = await authService.register(userData);
 
       // Assert
@@ -50,7 +50,7 @@ describe('AuthService', () => {
     });
 
     it('deve retornar erro se e-mail já existir', async () => {
-      // Arrange
+      
       const userData = {
         email: 'existing@example.com',
         nome: 'Test User',
@@ -66,7 +66,7 @@ describe('AuthService', () => {
         updatedAt: new Date(),
       });
 
-      // Act
+      // Ação
       const result = await authService.register(userData);
 
       // Assert
@@ -77,7 +77,7 @@ describe('AuthService', () => {
 
   describe('login', () => {
     it('deve fazer login com credenciais válidas', async () => {
-      // Arrange
+      
       const loginData = {
         email: 'test@example.com',
         senha: 'password123',
@@ -94,7 +94,7 @@ describe('AuthService', () => {
 
       mockUserRepository.findByEmail.mockResolvedValue(mockUser);
 
-      // Act
+      // Ação
       const result = await authService.login(loginData);
 
       // Assert

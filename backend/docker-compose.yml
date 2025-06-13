@@ -4,9 +4,10 @@ services:
   postgres:
     image: postgres:15-alpine
     environment:
-      POSTGRES_DB: controle_ponto
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: Lourenco2002
+      - TZ=America/Sao_Paulo
+      - POSTGRES_DB=controle_ponto
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=Lourenco2002
     ports:
       - "5432:5432"
     volumes:
@@ -19,19 +20,29 @@ services:
     ports:
       - "3001:3001"
     environment:
-      NODE_ENV: production
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: controle_ponto
-      DB_USER: root
-      DB_PASSWORD: Lourenco2002
+      - TZ=America/Sao_Paulo
+      - NODE_ENV=production
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=controle_ponto
+      - DB_USER=root
+      - DB_PASSWORD=Lourenco2002
     depends_on:
       - postgres
     networks:
       - app-network
     volumes:
-      - .:/app
       - /app/node_modules
+
+  frontend:
+    build:
+      context: ../frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
 
 volumes:
   postgres_data:
