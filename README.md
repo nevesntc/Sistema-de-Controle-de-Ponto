@@ -40,6 +40,8 @@ Sistema completo para controle de ponto dos colaboradores, desenvolvido com Reac
 - **React Hook Form**
 - **Zod**
 
+Prototipagem: https://app.uizard.io/p/2187af7a
+
 ## 📋 Como funciona o fluxo do sistema
 
 1. **Registro:**
